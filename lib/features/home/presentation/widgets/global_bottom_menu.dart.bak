@@ -1,0 +1,126 @@
+import 'package:flutter/material.dart';
+
+import '../../../../core/utils/font.dart';
+
+class GlobalBottomMenu extends StatelessWidget {
+  const GlobalBottomMenu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = ThemeData();
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
+      child: PhysicalModel(
+        color: Colors.transparent,
+        elevation: 12,
+        borderRadius: const BorderRadius.all(Radius.circular(32)),
+        shadowColor: theme.colorScheme.onBackground.withAlpha(180),
+        shape: BoxShape.rectangle,
+        child: Container(
+          decoration: BoxDecoration(
+            color: theme.cardTheme.color?.withAlpha(200) ?? AppColors.primary,
+            borderRadius: const BorderRadius.all(Radius.circular(35)),
+            border: Border.all(
+              width: 0.2,
+              color: AppColors.black.withAlpha(180),
+            ),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              singleItem(
+                index: 0,
+                width: unSelectedWidth,
+                icon: SizedBox(
+                  height: iconSize,
+                  child: Transform.scale(
+                    scale: 1.2,
+                    child: Image.asset(
+                      'assets/images/icons/icon_home.png',
+                      color: AppColors.black,
+                    ),
+                  ),
+                ),
+                activeIcon: SizedBox(
+                  child: Transform.scale(
+                    scale: 1.25,
+                    child: Image.asset('assets/images/icons/icon_home.png'),
+                  ),
+                ),
+                iconSize: iconSize,
+              ),
+              singleItem(
+                index: 1,
+                width: unSelectedWidth,
+                icon: SizedBox(
+                  height: iconSize,
+                  child: Transform.scale(
+                    scale: 1.25,
+                    child:
+                        Image.asset('assets/images/icons/icon_marketing.png'),
+                  ),
+                ),
+                activeIcon: SizedBox(
+                  height: iconSize,
+                  child: Transform.scale(
+                    scale: 1.25,
+                    child:
+                        Image.asset('assets/images/icons/icon_marketing.png'),
+                  ),
+                ),
+                iconSize: iconSize,
+              ),
+              singleItem(
+                index: 2,
+                width: unSelectedWidth,
+                icon: Icon(
+                  LucideIcons.users2,
+                  size: iconSize,
+                  color: AppColors.black,
+                ),
+                activeIcon: Icon(
+                  LucideIcons.users2,
+                  size: iconSize,
+                  color: AppColors.white,
+                ),
+                iconSize: iconSize,
+              ),
+              singleItem(
+                index: 3,
+                width: unSelectedWidth,
+                icon: Icon(
+                  LucideIcons.landmark,
+                  size: iconSize,
+                  color: AppColors.black,
+                ),
+                activeIcon: Icon(
+                  LucideIcons.landmark,
+                  size: iconSize,
+                  color: AppColors.white,
+                ),
+                iconSize: iconSize,
+              ),
+              singleItem(
+                index: 4,
+                width: unSelectedWidth,
+                icon: Icon(
+                  LucideIcons.settings,
+                  size: iconSize,
+                  color: AppColors.black,
+                ),
+                activeIcon: Icon(
+                  LucideIcons.settings,
+                  size: iconSize,
+                  color: AppColors.white,
+                ),
+                iconSize: iconSize,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
